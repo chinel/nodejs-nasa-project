@@ -1,8 +1,14 @@
 const express = require("express");
+const cors = require("cors");
 const planetsRouter = require("./routes/planets/planets.router");
 
 const app = express();
 
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+  })
+); // if you don't pass any option it allow all origins
 app.use(express.json()); // this parses json from incoming request
 app.use(planetsRouter);
 
