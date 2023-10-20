@@ -1,0 +1,30 @@
+{
+  "name": "nasa-nodejs-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-server": "npm install cwd server",
+    "install-client": "npm install cwd client",
+    "install": "npm run install-server && npm run install-client ",
+    "server": "cd server && npm run watch",
+    "client": "cd client && npm start",
+    "watch": "npm run server && npm run client",
+    "test": "npm run test cwd server && npm run test cwd client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chinel/nodejs-nasa-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chinel/nodejs-nasa-project/issues"
+  },
+  "homepage": "https://github.com/chinel/nodejs-nasa-project#readme",
+  "dependencies": {
+    "cwd": "^0.10.0",
+    "nasa-fe": "file:client"
+  }
+}
