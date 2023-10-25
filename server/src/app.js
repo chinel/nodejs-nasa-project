@@ -17,7 +17,7 @@ app.use(express.json()); // this parses json from incoming request
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use(planetsRouter);
-app.use(launchesRouter);
+app.use("/launches", launchesRouter); // you can pass the path here or leave it like the planets router
 app.use("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
