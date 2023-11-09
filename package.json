@@ -12,7 +12,9 @@
     "watch": "npm run server && npm run client",
     "build-client":"cd client && npm run build",
     "start-server":"cd server && npm start",
+    "start-server-cluster":"cd server && npm run cluster",
     "deploy": "npm run build-client && npm run start-server",
+    "deploy-cluster": "npm run build-client && npm run start-server-cluster",
     "test-client":"cd client && npm run test",
     "test-server":"cd server && npm run test",
     "test": "npm run test-client && npm run test-server"
