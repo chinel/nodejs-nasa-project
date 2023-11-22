@@ -3,20 +3,25 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=16.8.0"
+  },
   "scripts": {
+    "check-node-version":"node check-node-version.js",
+    "preinstall": "npm run check-node-version",
     "install-server": "cd server && npm install",
     "install-client": "cd client && npm install",
-    "install": "npm run install-server && npm run install-client ",
+    "install": "npm run preinstall && npm run install-server && npm run install-client ",
     "server": "cd server && npm run watch",
     "client": "cd client && npm start",
-    "watch": "npm run server && npm run client",
-    "build-client":"cd client && npm run build",
-    "start-server":"cd server && npm start",
-    "start-server-cluster":"cd server && npm run cluster",
-    "deploy": "npm run build-client && npm run start-server",
-    "deploy-cluster": "npm run build-client && npm run start-server-cluster",
-    "test-client":"cd client && npm run test",
-    "test-server":"cd server && npm run test",
+    "watch": "npm run preinstall && npm run server && npm run client",
+    "build-client": "cd client && npm run build",
+    "start-server": "cd server && npm start",
+    "start-server-cluster": "cd server && npm run cluster",
+    "deploy": "npm run preinstall && npm run build-client && npm run start-server",
+    "deploy-cluster": "npm run preinstall && npm run build-client && npm run start-server-cluster",
+    "test-client": "cd client && npm run test",
+    "test-server": "cd server && npm run test",
     "test": "npm run test-client && npm run test-server"
   },
   "repository": {
@@ -32,6 +37,7 @@
   "homepage": "https://github.com/chinel/nodejs-nasa-project#readme",
   "dependencies": {
     "nasa-fe": "file:client",
-    "nasa-project-api": "file:server"
+    "nasa-project-api": "file:server",
+    "semver": "^7.5.4"
   }
 }
