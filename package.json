@@ -20,9 +20,9 @@
     "start-server-cluster": "cd server && npm run cluster",
     "deploy": "npm run preinstall && npm run build-client && npm run start-server",
     "deploy-cluster": "npm run preinstall && npm run build-client && npm run start-server-cluster",
-    "test-client": "cd client && npm run test",
-    "test-server": "cd server && npm run test",
-    "test": "npm run test-client && npm run test-server"
+    "test-client": "npm run preinstall && cd client && npm run test",
+    "test-server": "npm run preinstall && cd server && npm run test",
+    "test": "npm run preinstall && npm run test-client && npm run test-server"
   },
   "repository": {
     "type": "git",

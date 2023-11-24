@@ -49,7 +49,6 @@ async function saveLaunch(launch = launch) {
     keplerName: launch.target,
   });
 
-  console.log("planet", planet);
   if (!planet) {
     throw new Error("No matching planet found");
   }
