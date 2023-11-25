@@ -20,7 +20,7 @@ describe("Launches API", () => {
       //  also the second parameter in the first chain can be a
       //regular expression or a string
       const response = await request(app)
-        .get("/launches")
+        .get("/v1/launches")
         .expect("Content-Type", /json/)
         .expect(200);
 
@@ -53,7 +53,7 @@ describe("Launches API", () => {
     // Note  that when you want to test the body of the response, you have use jest assertions i.e expect instead of the supertest own expect function
     test("It should respond with 201 success", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(completeLaunchData)
         .expect("Content-Type", /json/)
         .expect(201);
@@ -71,7 +71,7 @@ describe("Launches API", () => {
 
     test("It should catch missing required properties", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(launchDataWithoutDate)
         .expect("Content-Type", /json/)
         .expect(400);
@@ -85,7 +85,7 @@ describe("Launches API", () => {
 
     test("It should catch invalid dates", async () => {
       const response = await request(app)
-        .post("/launches")
+        .post("/v1/launches")
         .send(launchDataWitInvalidDate)
         .expect("Content-Type", /json/)
         .expect(400);
