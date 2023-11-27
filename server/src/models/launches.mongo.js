@@ -19,7 +19,6 @@ const launcheSchema = new mongoose.Schema({
   },
   target: {
     type: String,
-    required: true,
   },
   customers: [String], // this specifies the data is an array of strings
   upcoming: {
