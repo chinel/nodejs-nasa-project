@@ -5,7 +5,7 @@ const launches = new Map();
 
 const DEFAULT_FLIGHT_NUMBER = 100;
 
-const launch = {
+/*const launch = {
   flightNumber: 100, //flight_number
   mission: "Keepler Exploration X", //name
   rocket: "Explorer IS1", //rocket.name
@@ -15,8 +15,9 @@ const launch = {
   upcoming: true, //upcoming
   success: true, //success
 };
+*/
 
-saveLaunch(launch);
+//saveLaunch(launch);
 
 const SPACEX_API_URL = "https://api.spacexdata.com/v4/launches/query";
 
@@ -111,6 +112,7 @@ async function getLaunches(skip, limit) {
         __v: 0,
       }
     )
+    .sort({ flightNumber: 1 })
     .skip(skip)
     .limit(limit);
 }
