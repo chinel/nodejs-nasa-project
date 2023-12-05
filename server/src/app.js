@@ -4,6 +4,7 @@ const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
 const api = require("./routes/api");
+const auth = require("./routes/auth");
 
 const app = express();
 
@@ -18,7 +19,20 @@ app.use(express.json()); // this parses json from incoming request
 app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/v1", api);
-app.use("/*", (req, res) => {
+
+function checkLoggedIn(req, res, next) {
+  const isLoggedIn = true; //TODO
+  if (!isLoggedIn) {
+    return res.status(401).json({
+      error: "You must log in",
+    });
+  }
+
+  next();
+}
+
+app.use("/auth", auth);
+app.use("/*", checkLoggedIn, (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 module.exports = app;
