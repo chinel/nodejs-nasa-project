@@ -17,8 +17,8 @@ const config = {
 
 const AUTH_OPTIONS = {
   callbackURL: "/auth/google/callback",
-  clientId: GOOGLE_CLIENT_ID,
-  clientSecret: GOOGLE_CLIENT_SECRET,
+  clientId: config.GOOGLE_CLIENT_ID,
+  clientSecret: config.GOOGLE_CLIENT_SECRET,
 };
 
 function verifyCallback(accessToken, refreshToken, profile, done) {
@@ -34,6 +34,7 @@ app.use(
     origin: "http://localhost:3000",
   })
 ); // if you don't pass any option it allow all origins
+
 app.use(passport.initialize());
 app.use(morgan("combined")); // combined is default format there are other formats, the common format is also used by Apache
 app.use(express.json()); // this parses json from incoming request
