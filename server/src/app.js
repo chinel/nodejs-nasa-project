@@ -21,22 +21,11 @@ app.use(express.static(path.join(__dirname, "..", "public")));
 
 app.use("/v1", api);
 
-function checkLoggedIn(req, res, next) {
-  const isLoggedIn = true; //TODO
-  if (!isLoggedIn) {
-    return res.status(401).json({
-      error: "You must log in",
-    });
-  }
-
-  next();
-}
-
 app.use("/auth", auth);
 app.use("failure", (req, res) => {
   return res.send("Failed to log in!");
 });
-app.use("/*", checkLoggedIn, (req, res) => {
+app.use("/*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "public", "index.html"));
 });
 module.exports = app;
