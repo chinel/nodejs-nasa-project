@@ -13,7 +13,7 @@ app.use(
   cors({
     origin: "http://localhost:3000",
   })
-); // if you do not pass any option it allow all origins
+); // if you don't pass any option it allow all origins
 
 app.use(morgan("combined")); // combined is default format there are other formats, the common format is also used by Apache
 app.use(express.json()); // this parses json from incoming request
