@@ -54,7 +54,7 @@ app.use(
   cookieSession({
     name: "session",
     maxAge: 24 * 60 * 60 * 1000,
-    key: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
+    keys: [config.COOKIE_KEY_1, config.COOKIE_KEY_2],
   })
 );
 
