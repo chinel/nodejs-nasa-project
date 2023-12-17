@@ -1,9 +1,9 @@
 const mongoose = require("mongoose");
-const DB_USER = process.env.DB_USER;
-const DB_PASSWORD = process.env.DB_PASSWORD;
-const DB_NAME = process.env.DB_NAME;
+// const DB_USER = process.env.DB_USER;
+// const DB_PASSWORD = process.env.DB_PASSWORD;
+// const DB_NAME = process.env.DB_NAME;
 
-const MONGO_URL = `mongodb+srv://${DB_USER}:${DB_PASSWORD}@nasacluster.br0m6yy.mongodb.net/${DB_NAME}?retryWrites=true&w=majority`;
+const MONGO_URL = process.env.MONGO_URL;
 
 // we can also use once() here instead of on() since our
 //database connection will open only once. Once is and
