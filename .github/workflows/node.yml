@@ -31,4 +31,4 @@ jobs:
       - run: npm install
       - run: npm run build --prefix client
       - run: echo "${{ env.GOOGLE_CLIENT_ID}} ${{ env.COOKIE_KEY_1}}"
-      - run: npm run test-server
+      - run: npm run test
